@@ -8,43 +8,43 @@ public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "SUID")
-    private Long StudentID;
+    private Long id;
 
     @Column(name = "name")
-    private String StudentName;
+    private String name;
 
     // Default constructor
     public Student() {
     }
 
     // Constructor with name
-    public Student(String StudentName) {
-        this.StudentName = StudentName;
+    public Student(String name) {
+        this.name = name;
     }
 
     // Getter for student ID
-    public Long getStudentID() {
-        return StudentID;
+    public Long getId() {
+        return id;
     }
 
     // Setter for student ID
-    public void setStudentID(Long StudentID) {
-        this.StudentID = StudentID;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     // Getter for student name
-    public String getStudentName() {
-        return StudentName;
+    public String getName() {
+        return name;
     }
 
     // Setter for student name
-    public void setStudentName(String StudentName) {
-        this.StudentName = StudentName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     // String representation of the Student object
     @Override
     public String toString() {
-        return "Student [ Student ID=" + StudentID + ", Student Name= " + StudentName + " ]";
+        return "Student [ ID=" + id + ", Name= " + name + " ]";
     }
 }

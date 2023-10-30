@@ -11,7 +11,7 @@ import javax.persistence.*;
 public class Price {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long PriceID;
+    private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "book_id", nullable = false)
@@ -32,8 +32,8 @@ public class Price {
     }
 
     // Getter for price ID
-    public Long getPriceID() {
-        return PriceID;
+    public Long getId() {
+        return id;
     }
 
     // Getter for the associated book
@@ -59,6 +59,6 @@ public class Price {
     // String representation of the Price object
     @Override
     public String toString() {
-        return "Price [ Price ID=" + PriceID + ", Book=" + book + ", Price=" + price + " ]";
+        return "Price [ ID=" + id + ", Book=" + book + ", Price=" + price + " ]";
     }
 }

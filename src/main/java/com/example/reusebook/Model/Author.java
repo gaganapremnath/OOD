@@ -12,10 +12,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long authorID;
+    private Long id;
 
     @Column(name = "name")
-    private String authorName;
+    private String name;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "book_id", nullable = false)
@@ -24,18 +24,18 @@ public class Author {
     private Book book;  // The book associated with this author
 
     // Getter for author's unique identifier
-    public Long getAuthorID() {
-        return authorID;
+    public Long getId() {
+        return id;
     }
 
     // Getter for author's name
-    public String getAuthorName() {
-        return authorName;
+    public String getName() {
+        return name;
     }
 
     // Setter for author's name
-    public void setAuthorName(String authorName) {
-        this.authorName = authorName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     // Getter for the associated book
@@ -51,6 +51,6 @@ public class Author {
     // String representation of the Author object
     @Override
     public String toString() {
-        return "Author [ Author Name=" + authorName + " ]";
+        return "Author [ Name=" + name + " ]";
     }
 }
