@@ -3,20 +3,20 @@ package com.example.reusebook.Model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Books")
+@Table(name = "books")
 public class Book {
-
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private long id;
+    private Long BookID;
 
     @Column(name = "title")
-    private String title;
+    private String BookTitle;
+
     @Column(name = "ISBN")
-    private String isbn;
+    private String ISBN;
 
     @Column(name = "Edition")
-    private String edition;
+    private String BookEdition;
 
     @Column(name = "YearOfPublication")
     private String yearOfPublication;
@@ -24,72 +24,77 @@ public class Book {
     @Column(name = "isAvailable")
     private boolean isAvailable;
 
+    // Default constructor
     public Book() {
-
     }
 
-    public Book(String title, String isbn, String edition, String yearOfPublication ,boolean isAvailable) {
-        this.title = title;
-        this.isbn = isbn;
-        this.edition = edition;
-        this.isAvailable = isAvailable;
+    // Constructor with book details
+    public Book(String BookTitle, String ISBN, String BookEdition, String yearOfPublication, boolean isAvailable) {
+        this.BookTitle = BookTitle;
+        this.ISBN = ISBN;
+        this.BookEdition = BookEdition;
         this.yearOfPublication = yearOfPublication;
+        this.isAvailable = isAvailable;
     }
 
-    public long getId() {
-        return id;
+    // Getter for book ID
+    public Long getBookID() {
+        return BookID;
     }
 
-    public String getTitle() {
-        return title;
+    // Getter for book title
+    public String getBookTitle() {
+        return BookTitle;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    // Setter for book title
+    public void setBookTitle(String BookTitle) {
+        this.BookTitle = BookTitle;
     }
 
-
-    public String getIsbn() {
-        return isbn;
+    // Getter for book ISBN
+    public String getISBN() {
+        return ISBN;
     }
 
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
+    // Setter for book ISBN
+    public void setISBN(String ISBN) {
+        this.ISBN = ISBN;
     }
 
-    public String getEdition() {
-        return edition;
+    // Getter for book edition
+    public String getBookEdition() {
+        return BookEdition;
     }
 
-    public void setEdition(String edition) {
-        this.edition = edition;
+    // Setter for book edition
+    public void setBookEdition(String BookEdition) {
+        this.BookEdition = BookEdition;
     }
 
+    // Getter for the year of publication
     public String getYearOfPublication() {
         return yearOfPublication;
     }
 
+    // Setter for the year of publication
     public void setYearOfPublication(String yearOfPublication) {
         this.yearOfPublication = yearOfPublication;
     }
 
-    public boolean getisAvailable() {
+    // Getter for book availability
+    public boolean isAvailable() {
         return isAvailable;
     }
 
-    public void setisAvailable(boolean isAvailable) {
-        this.isAvailable = isAvailable;
+    // Setter for book availability
+    public void setAvailable(boolean available) {
+        this.isAvailable = available;
     }
 
+    // String representation of the Book object
     @Override
     public String toString() {
-        return "Book{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", isbn='" + isbn + '\'' +
-                ", edition='" + edition + '\'' +
-                ", yearOfPublication='" + yearOfPublication + '\'' +
-                ", isAvailable=" + isAvailable +
-                '}';
+        return "Book [ Book ID= " + BookID +", Book Title= " + BookTitle +", ISBN = " + ISBN + ", Book Edition= " + BookEdition + ", YearOfPublication= " + yearOfPublication +", IsAvailable= " + isAvailable +" ]";
     }
 }

@@ -1,5 +1,5 @@
 package com.example.reusebook.Interface;
 
-public interface DiscountStrategy {
-    String getDiscountPrint(int price,int noOfTransaction);
+public interface DiscountScheme {
+    String getDiscountDetails(int price, int numofTransaction);
 }
