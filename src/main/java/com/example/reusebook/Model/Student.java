@@ -3,45 +3,48 @@ package com.example.reusebook.Model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Students")
+@Table(name = "students")
 public class Student {
-
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "SUID")
-    private long id;
+    private Long id;
 
     @Column(name = "name")
     private String name;
-    public Student(){
 
+    // Default constructor
+    public Student() {
     }
 
+    // Constructor with name
     public Student(String name) {
         this.name = name;
     }
 
-    public long getId() {
+    // Getter for student ID
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    // Setter for student ID
+    public void setId(Long id) {
         this.id = id;
     }
 
+    // Getter for student name
     public String getName() {
         return name;
     }
 
+    // Setter for student name
     public void setName(String name) {
         this.name = name;
     }
 
+    // String representation of the Student object
     @Override
     public String toString() {
-        return "Student{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
+        return "Student [ ID=" + id + ", Name= " + name + " ]";
     }
 }

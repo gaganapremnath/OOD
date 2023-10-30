@@ -3,15 +3,15 @@ package com.example.reusebook.Model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Books")
+@Table(name = "books")
 public class Book {
-
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private long id;
+    private Long id;
 
     @Column(name = "title")
     private String title;
+
     @Column(name = "ISBN")
     private String isbn;
 
@@ -24,72 +24,77 @@ public class Book {
     @Column(name = "isAvailable")
     private boolean isAvailable;
 
+    // Default constructor
     public Book() {
-
     }
 
-    public Book(String title, String isbn, String edition, String yearOfPublication ,boolean isAvailable) {
+    // Constructor with book details
+    public Book(String title, String isbn, String edition, String yearOfPublication, boolean isAvailable) {
         this.title = title;
         this.isbn = isbn;
         this.edition = edition;
-        this.isAvailable = isAvailable;
         this.yearOfPublication = yearOfPublication;
+        this.isAvailable = isAvailable;
     }
 
-    public long getId() {
+    // Getter for book ID
+    public Long getId() {
         return id;
     }
 
+    // Getter for book title
     public String getTitle() {
         return title;
     }
 
+    // Setter for book title
     public void setTitle(String title) {
         this.title = title;
     }
 
-
+    // Getter for book ISBN
     public String getIsbn() {
         return isbn;
     }
 
+    // Setter for book ISBN
     public void setIsbn(String isbn) {
         this.isbn = isbn;
     }
 
+    // Getter for book edition
     public String getEdition() {
         return edition;
     }
 
+    // Setter for book edition
     public void setEdition(String edition) {
         this.edition = edition;
     }
 
+    // Getter for the year of publication
     public String getYearOfPublication() {
         return yearOfPublication;
     }
 
+    // Setter for the year of publication
     public void setYearOfPublication(String yearOfPublication) {
         this.yearOfPublication = yearOfPublication;
     }
 
-    public boolean getisAvailable() {
+    // Getter for book availability
+    public boolean isAvailable() {
         return isAvailable;
     }
 
-    public void setisAvailable(boolean isAvailable) {
-        this.isAvailable = isAvailable;
+    // Setter for book availability
+    public void setAvailable(boolean available) {
+        this.isAvailable = available;
     }
 
+    // String representation of the Book object
     @Override
     public String toString() {
-        return "Book{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", isbn='" + isbn + '\'' +
-                ", edition='" + edition + '\'' +
-                ", yearOfPublication='" + yearOfPublication + '\'' +
-                ", isAvailable=" + isAvailable +
-                '}';
+        return "Book [ ID= " + id +", Title= " + title +", ISBN = " + isbn + ", Edition= " + edition + ", YearOfPublication= " + yearOfPublication +", IsAvailable= " + isAvailable +" ]";
     }
 }

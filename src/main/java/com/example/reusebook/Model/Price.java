@@ -7,7 +7,7 @@ import org.hibernate.annotations.OnDeleteAction;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Prices")
+@Table(name = "prices")
 public class Price {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -19,41 +19,46 @@ public class Price {
     @JsonIgnore
     private Book book;
 
-   private String price;
+    @Column(name = "price")
+    private String price;
 
-   public Price(){}
+    // Default constructor
+    public Price(){}
 
+    // Constructor with book and price
     public Price(Book book, String price) {
         this.book = book;
         this.price = price;
     }
 
+    // Getter for price ID
     public Long getId() {
         return id;
     }
 
+    // Getter for the associated book
     public Book getBook() {
         return book;
     }
-
+    
+    // Setter for the associated book
     public void setBook(Book book) {
         this.book = book;
     }
 
+    // Getter for book price
     public String getPrice() {
         return price;
     }
 
+    // Setter for the associated book price
     public void setPrice(String price) {
         this.price = price;
     }
 
+    // String representation of the Price object
     @Override
     public String toString() {
-        return "Price{" +
-                "id=" + id +
-                ", book=" + book +
-                ", price='" + price + '\'' +
-                '}';
+        return "Price [ ID=" + id + ", Book=" + book + ", Price=" + price + " ]";
     }
 }
