@@ -12,7 +12,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long id;
+    private Long TransactionID;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "book_id", nullable = false)
@@ -36,14 +36,14 @@ public class Transaction {
     @JoinColumn(name = "type_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore
-    private Type type; // The type of this transaction
+    private TransactionType type; // The type of this transaction
 
     // Default constructor
     public Transaction() {
     }
 
     // Constructor with transaction details
-    public Transaction(Book book, Student student, Price price, Type type) {
+    public Transaction(Book book, Student student, Price price, TransactionType type) {
         this.book = book;
         this.student = student;
         this.price = price;
@@ -51,8 +51,8 @@ public class Transaction {
     }
 
     // Getter for the transaction ID
-    public Long getId() {
-        return id;
+    public Long getTransactionID() {
+        return TransactionID;
     }
 
     // Getter for the book in the transaction
@@ -86,20 +86,20 @@ public class Transaction {
     }
 
     // Getter for the type of the transaction
-    public Type getType() {
+    public TransactionType getType() {
         return type;
     }
 
     // Setter for the type of the transaction
-    public void setType(Type type) {
+    public void setType(TransactionType type) {
         this.type = type;
     }
 
     // String representation of the Transaction object
     @Override
     public String toString() {
-        return "Transaction [ ID=" + id +", Book=" + book +
+        return "Transaction [ TransactionID=" + TransactionID +", Book=" + book +
                 ", Student=" + student +", Price=" + price +
-                ", Type=" + type + " ]";
+                ", Transaction Type=" + type + " ]";
     }
 }
