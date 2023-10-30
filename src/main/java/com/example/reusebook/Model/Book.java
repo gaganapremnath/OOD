@@ -7,16 +7,16 @@ import javax.persistence.*;
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long id;
+    private Long BookID;
 
     @Column(name = "title")
-    private String title;
+    private String BookTitle;
 
     @Column(name = "ISBN")
-    private String isbn;
+    private String ISBN;
 
     @Column(name = "Edition")
-    private String edition;
+    private String BookEdition;
 
     @Column(name = "YearOfPublication")
     private String yearOfPublication;
@@ -29,47 +29,47 @@ public class Book {
     }
 
     // Constructor with book details
-    public Book(String title, String isbn, String edition, String yearOfPublication, boolean isAvailable) {
-        this.title = title;
-        this.isbn = isbn;
-        this.edition = edition;
+    public Book(String BookTitle, String ISBN, String BookEdition, String yearOfPublication, boolean isAvailable) {
+        this.BookTitle = BookTitle;
+        this.ISBN = ISBN;
+        this.BookEdition = BookEdition;
         this.yearOfPublication = yearOfPublication;
         this.isAvailable = isAvailable;
     }
 
     // Getter for book ID
-    public Long getId() {
-        return id;
+    public Long getBookID() {
+        return BookID;
     }
 
     // Getter for book title
-    public String getTitle() {
-        return title;
+    public String getBookTitle() {
+        return BookTitle;
     }
 
     // Setter for book title
-    public void setTitle(String title) {
-        this.title = title;
+    public void setBookTitle(String BookTitle) {
+        this.BookTitle = BookTitle;
     }
 
     // Getter for book ISBN
-    public String getIsbn() {
-        return isbn;
+    public String getISBN() {
+        return ISBN;
     }
 
     // Setter for book ISBN
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
+    public void setISBN(String ISBN) {
+        this.ISBN = ISBN;
     }
 
     // Getter for book edition
-    public String getEdition() {
-        return edition;
+    public String getBookEdition() {
+        return BookEdition;
     }
 
     // Setter for book edition
-    public void setEdition(String edition) {
-        this.edition = edition;
+    public void setBookEdition(String BookEdition) {
+        this.BookEdition = BookEdition;
     }
 
     // Getter for the year of publication
@@ -95,6 +95,6 @@ public class Book {
     // String representation of the Book object
     @Override
     public String toString() {
-        return "Book [ ID= " + id +", Title= " + title +", ISBN = " + isbn + ", Edition= " + edition + ", YearOfPublication= " + yearOfPublication +", IsAvailable= " + isAvailable +" ]";
+        return "Book [ Book ID= " + BookID +", Book Title= " + BookTitle +", ISBN = " + ISBN + ", Book Edition= " + BookEdition + ", YearOfPublication= " + yearOfPublication +", IsAvailable= " + isAvailable +" ]";
     }
 }
