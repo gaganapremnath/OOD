@@ -16,5 +16,5 @@ public interface PriceRepository extends JpaRepository<Price, Long> {
 
     List<Price> findByBookId(Long bookId);
     @Query(value = "SELECT * FROM Prices p order by p.id desc LIMIT 1", nativeQuery = true)
-    Price findByBookIdOrderByLevelDesc(Long bookId);
+    Price findBy_BookId_OrderBy_LevelDesc(Long bookId);
 }

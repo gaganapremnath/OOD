@@ -143,7 +143,7 @@ public class BookService {
         if(!searchKey.isBlank()){
             Pageable p = getPageable(pageNo, pageSize, sortBy, sortDir);
             searchKey = searchKey.trim();
-            List<Book> books = bookRepository.findByTitleContainsOrEditionContainsOrIsbnContainsAndIsAvailable(searchKey.toLowerCase(),p);
+            List<Book> books = bookRepository.findBy_Title_Edition_Isbn_IsAvailable(searchKey.toLowerCase(),p);
             return new ResponseEntity<>(books, HttpStatus.OK);
 
         }

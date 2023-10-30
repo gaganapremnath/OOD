@@ -21,7 +21,7 @@ public class PriceService {
     }
 
     public ResponseEntity<Price> getPriceByBookId(Long bookId) {
-        Price prices = priceRepository.findByBookIdOrderByLevelDesc(bookId);
+        Price prices = priceRepository.findBy_BookId_OrderBy_LevelDesc(bookId);
         return new ResponseEntity<>(prices, HttpStatus.OK);
     }
 
