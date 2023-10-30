@@ -4,15 +4,15 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "type")
-public class Type {
+public class TransactionType {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     private String name;
-    public  Type(){}
+    public  TransactionType(){}
 
-    public Type(String name) {
+    public TransactionType(String name) {
         this.name = name;
     }
 
