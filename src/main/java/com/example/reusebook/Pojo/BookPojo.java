@@ -3,11 +3,11 @@ package com.example.reusebook.Pojo;
 public class BookPojo {
 
 
-    private Long id;
-    private String title;
-    private String isbn;
+    private Long BookPojoID;
+    private String BookTitle;
+    private String ISBN;
 
-    private String edition;
+    private String BookEdition;
 
     private String yearOfPublication;
 
@@ -15,46 +15,46 @@ public class BookPojo {
 
     private String price;
 
-    private String studentId;
+    private String StudentId;
 
-    public Long getId() {
-        return id;
+    public Long getBookPojoID() {
+        return BookPojoID;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setBookPojoID(Long BookPojoID) {
+        this.BookPojoID = BookPojoID;
     }
 
-    public String getTitle() {
-        return title;
+    public String getBookTitle() {
+        return BookTitle;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setBookTitle(String BookTitle) {
+        this.BookTitle = BookTitle;
     }
 
-    public String getIsbn() {
-        return isbn;
+    public String getISBN() {
+        return ISBN;
     }
 
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
+    public void setISBN(String ISBN) {
+        this.ISBN = ISBN;
     }
 
-    public String getEdition() {
-        return edition;
+    public String getBookEdition() {
+        return BookEdition;
     }
 
-    public void setEdition(String edition) {
-        this.edition = edition;
+    public void setBookEdition(String BookEdition) {
+        this.BookEdition = BookEdition;
     }
 
     public boolean isAvailable() {
         return isAvailable;
     }
 
-    public void setAvailable(boolean available) {
-        isAvailable = available;
+    public void setAvailable(boolean isAvailable) {
+        isAvailable = isAvailable;
     }
 
     public String getPrice() {
@@ -66,11 +66,11 @@ public class BookPojo {
     }
 
     public String getStudentId() {
-        return studentId;
+        return StudentId;
     }
 
-    public void setStudentId(String studentId) {
-        this.studentId = studentId;
+    public void setStudentId(String StudentId) {
+        this.StudentId = StudentId;
     }
 
     public String getYearOfPublication() {
