@@ -6,4 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface StudentRepository extends JpaRepository<Student, Long>{
+    // This repository provides CRUD operations for the Student entity.
+
 }
+

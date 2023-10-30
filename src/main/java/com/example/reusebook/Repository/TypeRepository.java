@@ -1,11 +1,11 @@
 package com.example.reusebook.Repository;
 
-import com.example.reusebook.Model.TransactionType;
+import com.example.reusebook.Model.Type;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface TypeRepository extends JpaRepository<TransactionType, Long> {
-
+public interface TypeRepository extends JpaRepository<Type, Long> {
+    // This repository provides CRUD operations for the Type entity.
 }
