@@ -70,7 +70,7 @@ public class BookService {
         return studentRepository.findById(new Long(studentId)).orElseThrow();
     }
 
-    private Type getType(String typeId){
+    private TransactionType getType(String typeId){
         return typeRepository.findById(new Long(typeId)).orElseThrow();
     }
 

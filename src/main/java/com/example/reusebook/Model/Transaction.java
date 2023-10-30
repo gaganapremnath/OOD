@@ -37,11 +37,11 @@ public class Transaction {
     @JoinColumn(name = "type_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore
-    private Type type;
+    private TransactionType type;
 
     public Transaction(){}
 
-    public Transaction(Book book, Student student, Price price, Type type) {
+    public Transaction(Book book, Student student, Price price, TransactionType type) {
         this.book = book;
         this.student = student;
         this.price = price;
@@ -76,11 +76,11 @@ public class Transaction {
         this.price = price;
     }
 
-    public Type getType() {
+    public TransactionType getType() {
         return type;
     }
 
-    public void setType(Type type) {
+    public void setType(TransactionType type) {
         this.type = type;
     }
 
