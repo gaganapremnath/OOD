@@ -20,12 +20,12 @@ public class AuthorController {
     private AuthorService authorService;
 
 
-    @PostMapping(value = "/{bookId}/addAuthor")
+    @PostMapping(value = "/addAuthor/{bookId}")
     public ResponseEntity<Object> addAuthor(@PathVariable(value = "bookId") Long bookId, @RequestBody Author author){
         return authorService.addAuthor(bookId, author);
     }
 
-    @GetMapping("/{bookId}/getAuthors")
+    @GetMapping("/getAuthors/{bookId}")
     public ResponseEntity<List<Author>> getAllAuthorByBookId(@PathVariable(value = "bookId") Long bookId) {
         return authorService.getAllAuthorByBookId(bookId);
     }

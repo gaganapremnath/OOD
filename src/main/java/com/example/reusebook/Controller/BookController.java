@@ -1,9 +1,8 @@
 package com.example.reusebook.Controller;
 
-import com.example.reusebook.Constants.AppConstants;
+import com.example.reusebook.Constants.PageConstants;
 import com.example.reusebook.Model.Book;
 import com.example.reusebook.Pojo.BookPojo;
-import com.example.reusebook.Repository.TransactionRepository;
 import com.example.reusebook.Service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -38,10 +37,10 @@ public class BookController {
 
     @GetMapping(value = "/getBooks")
     public ResponseEntity<List<Book>> getAllBooks(
-            @RequestParam(value = "pageNo", defaultValue = AppConstants.DEFAULT_PAGE_NUMBER, required = false) int pageNo,
-            @RequestParam(value = "pageSize", defaultValue = AppConstants.DEFAULT_PAGE_SIZE, required = false) int pageSize,
-            @RequestParam(value = "sortBy", defaultValue = AppConstants.DEFAULT_SORT_BY, required = false) String sortBy,
-            @RequestParam(value = "sortDir", defaultValue = AppConstants.DEFAULT_SORT_DIRECTION, required = false) String sortDir
+            @RequestParam(value = "pageNo", defaultValue = PageConstants.DEFAULT_PAGE_NUMBER, required = false) int pageNo,
+            @RequestParam(value = "pageSize", defaultValue = PageConstants.DEFAULT_PAGE_SIZE, required = false) int pageSize,
+            @RequestParam(value = "sortBy", defaultValue = PageConstants.DEFAULT_SORT_BY, required = false) String sortBy,
+            @RequestParam(value = "sortDir", defaultValue = PageConstants.DEFAULT_SORT_DIRECTION, required = false) String sortDir
     ){
         return bookService.getAllBooks(pageNo,pageSize,sortBy,sortDir);
     }
@@ -49,10 +48,10 @@ public class BookController {
     @GetMapping(value = "/getBooksOn")
     public ResponseEntity<Object> getBooks(
             @RequestParam(value = "searchKey", required = false) String searchKey,
-            @RequestParam(value = "pageNo", defaultValue = AppConstants.DEFAULT_PAGE_NUMBER, required = false) int pageNo,
-            @RequestParam(value = "pageSize", defaultValue = AppConstants.DEFAULT_PAGE_SIZE, required = false) int pageSize,
-            @RequestParam(value = "sortBy", defaultValue = AppConstants.DEFAULT_SORT_BY, required = false) String sortBy,
-            @RequestParam(value = "sortDir", defaultValue = AppConstants.DEFAULT_SORT_DIRECTION, required = false) String sortDir
+            @RequestParam(value = "pageNo", defaultValue = PageConstants.DEFAULT_PAGE_NUMBER, required = false) int pageNo,
+            @RequestParam(value = "pageSize", defaultValue = PageConstants.DEFAULT_PAGE_SIZE, required = false) int pageSize,
+            @RequestParam(value = "sortBy", defaultValue = PageConstants.DEFAULT_SORT_BY, required = false) String sortBy,
+            @RequestParam(value = "sortDir", defaultValue = PageConstants.DEFAULT_SORT_DIRECTION, required = false) String sortDir
     ){
         return bookService.getBooks(searchKey,pageNo,pageSize,sortBy,sortDir);
     }
