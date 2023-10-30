@@ -14,36 +14,60 @@ public class StudentService {
     @Autowired
     private StudentRepository studentRepository;
 
-    public ResponseEntity<Object> addStudent(Student student){
-        if(student.getName() != null && !student.getName().isEmpty() && !student.getName().isBlank()){
-            Student s = studentRepository.save(student);
-            return  new ResponseEntity<>(s, HttpStatus.CREATED);
-        }else{
-            return new ResponseEntity<>("Bad Request for Student", HttpStatus.BAD_REQUEST);
+    /**
+     * Add a new student.
+     *
+     * @param student The student entity to be added.
+     * @return ResponseEntity with the added student or an error message.
+     */
+    public ResponseEntity<Object> addStudent(Student student) {
+        if (isValidStudentName(student.getName())) {
+            Student addedStudent = studentRepository.save(student);
+            return new ResponseEntity<>(addedStudent, HttpStatus.CREATED);
+        } else {
+            return new ResponseEntity<>("Invalid Student Name", HttpStatus.BAD_REQUEST);
         }
     }
 
+    /**
+     * Update student information by student ID.
+     *
+     * @param studentId  The ID of the student to be updated.
+     * @param studentR   The updated student information.
+     * @return ResponseEntity with the updated student or an error message.
+     */
     public ResponseEntity<Object> updateStudent(long studentId, Student studentR) {
         Optional<Student> student = studentRepository.findById(studentId);
-        if(student.isPresent()){
-            Student s = student.get();
-            if(studentR.getName() != null && !studentR.getName().isEmpty() && !studentR.getName().isBlank()) {
-                s.setName(studentR.getName());
-                return new ResponseEntity<>(studentRepository.save(s), HttpStatus.OK);
-            }else{
-                return new ResponseEntity<>("Bad Request for Student", HttpStatus.BAD_REQUEST);
+        if (student.isPresent()) {
+            Student existingStudent = student.get();
+            if (isValidStudentName(studentR.getName())) {
+                existingStudent.setName(studentR.getName());
+                return new ResponseEntity<>(studentRepository.save(existingStudent), HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>("Invalid Student Name", HttpStatus.BAD_REQUEST);
             }
-        }else{
-            return new ResponseEntity<>("Student id not found",HttpStatus.NOT_FOUND);
+        } else {
+            return new ResponseEntity<>("Student ID not found", HttpStatus.NOT_FOUND);
         }
     }
 
+    /**
+     * Delete a student by student ID.
+     *
+     * @param id The ID of the student to be deleted.
+     * @return ResponseEntity with HTTP status.
+     */
     public ResponseEntity<HttpStatus> deleteStudent(long id) {
         Optional<Student> student = studentRepository.findById(id);
-        if(!student.isPresent())
+        if (!student.isPresent()) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
         studentRepository.deleteById(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
+    // Helper method to validate student name
+    private boolean isValidStudentName(String name) {
+        return name != null && !name.isEmpty() && !name.isBlank();
+    }
 }
