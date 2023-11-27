@@ -20,12 +20,12 @@ public class AuthorController {
     private AuthorService authorService;
 
 
-    @PostMapping(value = "/addAuthor/{bookId}")
+    @PostMapping(value = "/{bookId}/addAuthor")
     public ResponseEntity<Object> addAuthor(@PathVariable(value = "bookId") Long bookId, @RequestBody Author author){
         return authorService.addAuthor(bookId, author);
     }
 
-    @GetMapping("/getAuthors/{bookId}")
+    @GetMapping("/{bookId}/getAuthors")
     public ResponseEntity<List<Author>> getAllAuthorByBookId(@PathVariable(value = "bookId") Long bookId) {
         return authorService.getAllAuthorByBookId(bookId);
     }
@@ -36,8 +36,8 @@ public class AuthorController {
     }
 
     @DeleteMapping("/deleteAuthor/{authorId}")
-    public ResponseEntity<HttpStatus> deleteAuthor(@PathVariable("authorId") long id) {
-        return authorService.deleteAuthor(id);
+    public ResponseEntity<HttpStatus> deleteAuthor(@PathVariable("authorId") long authorId) {
+        return authorService.deleteAuthor(authorId);
     }
 
 

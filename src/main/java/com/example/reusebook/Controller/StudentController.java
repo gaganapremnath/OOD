@@ -23,7 +23,7 @@ public class StudentController {
         return studentService.addStudent(student);
     }
 
-    @PutMapping("/editStudent/{studentId}")
+    @PutMapping("/updateStudent/{studentId}")
     public ResponseEntity<Object> updateStudent(@PathVariable("studentId") long studentId, @RequestBody Student studentR) {
         return studentService.updateStudent(studentId,studentR);
     }

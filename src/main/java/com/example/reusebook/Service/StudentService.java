@@ -63,7 +63,7 @@ public class StudentService {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         studentRepository.deleteById(id);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     // Helper method to validate student name

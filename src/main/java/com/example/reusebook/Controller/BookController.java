@@ -12,18 +12,12 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller // This means that this class is a Controller
-@RequestMapping(path="/books") // This means URL's start with /demo (after Application path)
+@Controller
+@RequestMapping(path="/books")
 public class BookController {
 
     @Autowired
     private BookService bookService;
-
-
-    @GetMapping(value = "/")
-    public ResponseEntity<String> test(){
-        return new ResponseEntity<>("Hello World",HttpStatus.OK);
-    }
 
     @PostMapping("/addBooks")
     public  ResponseEntity<Book> addBook(@RequestBody BookPojo bookPojo){
@@ -56,7 +50,7 @@ public class BookController {
         return bookService.getBooks(searchKey,pageNo,pageSize,sortBy,sortDir);
     }
 
-    @PutMapping("/editBook")
+    @PutMapping("/updateBook")
     public ResponseEntity<Book> updateBook(@RequestBody BookPojo bookPojo) {
         return bookService.updateBook(bookPojo);
     }

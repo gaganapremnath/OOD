@@ -102,7 +102,7 @@ public class AuthorService {
 
         // If the author exists, delete it
         authorRepository.deleteById(id);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     /**

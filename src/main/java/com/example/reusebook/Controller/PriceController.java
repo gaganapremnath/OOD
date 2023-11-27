@@ -10,9 +10,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller // This means that this class is a Controller
-@RequestMapping(path="/prices") // This means URL's start with /demo (after Application path)
-
+@Controller
+@RequestMapping(path="/prices") 
 public class PriceController {
     @Autowired
     private PriceService priceService;

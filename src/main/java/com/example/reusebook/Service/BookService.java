@@ -190,10 +190,9 @@ public class BookService {
     }
 
     private String calculateDiscount(Price price, Book book) {
-        int sellTransaction = transactionRepository.count_SellTransactions_ByBookId(book.getId());
         Discount_Scheme discount = new PublicationAgeDiscount();
 
-        return discount.getDiscountDetails(Integer.parseInt(price.getPrice()), sellTransaction);
+        return discount.getDiscountDetails(Integer.parseInt(price.getPrice()));
     }
 
     private Transaction createTransaction(Book book, BookPojo bookPojo, Price price, DiscountConstants sell) {
