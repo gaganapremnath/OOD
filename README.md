@@ -83,15 +83,21 @@ docker-compose up --build
 
 ### Usage
 **Search for a Book:** Use the search functionality in the frontend to find a book by title, ISBN, etc.
+
 **Buy a Book:** Register a new book purchase through the frontend, linking it to a student.
+
 **Sell a Book:** Sell a book to a student, updating the is_available status and logging the transaction.
+
 **Resell a Book:** Handle the resale of a book, ensuring that the price is updated based on previous sales.
 
 ### Testing
 **API Testing:** Use Postman or Swagger to test the RESTful APIs.
+
 **Unit & Integration Testing:** Implement tests using JUnit for the backend logic.
 
 ### Future Enhancements
 **Advanced Search:** Implement search filters based on authors, price ranges, and availability status.
+
 **Discount Calculation:** Introduce more sophisticated discounting algorithms based on the book’s condition, age, and popularity.
+
 **Notifications:** Add a notification system to alert students when a book they’re interested in becomes available.
